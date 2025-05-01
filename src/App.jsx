@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import ContactList from "./components/ContactList/ContactList.jsx";
 import SearchBox from "./components/SearchBox/SearchBox.jsx";
-// import ContactForm from "./components/ContactForm/ContactForm.jsx";
+import ContactForm from "./components/ContactForm/ContactForm.jsx";
 import "./App.css";
+import { nanoid } from "nanoid";
 
 export default function App() {
   const getContacts = () => {
@@ -28,12 +29,20 @@ export default function App() {
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
 
+  const handleAddContact = (newContact) => {
+    const contactId = {
+      id: nanoid(),
+      ...newContact,
+    };
+    setContacts((prev) => [...prev, contactId]);
+  };
+
   return (
     <div>
       <h1>Phonebook</h1>
-      {/* {/* <ContactForm /> */}
+      <ContactForm onAdd={handleAddContact} />
       <SearchBox value={filter} onChange={setFilter} />
-      <ContactList contacts={contacts} />
+      <ContactList contacts={filteredContacts} />
     </div>
   );
 }
