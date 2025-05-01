@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import ContactList from "./components/ContactList/ContactList.jsx";
+import SearchBox from "./components/SearchBox/SearchBox.jsx";
 // import ContactForm from "./components/ContactForm/ContactForm.jsx";
-// import SearchBox from "./components/SearchBox/SearchBox.jsx";
 import "./App.css";
 
 export default function App() {
@@ -18,16 +18,21 @@ export default function App() {
   };
 
   const [contacts, setContacts] = useState(getContacts);
+  const [filter, setFilter] = useState("");
 
   useEffect(() => {
     localStorage.setItem("contacts", JSON.stringify(contacts));
   }, [contacts]);
 
+  const filteredContacts = contacts.filter((contact) =>
+    contact.name.toLowerCase().includes(filter.toLowerCase())
+  );
+
   return (
     <div>
       <h1>Phonebook</h1>
-      {/* <ContactForm />
-    <SearchBox /> */}
+      {/* {/* <ContactForm /> */}
+      <SearchBox value={filter} onChange={setFilter} />
       <ContactList contacts={contacts} />
     </div>
   );
