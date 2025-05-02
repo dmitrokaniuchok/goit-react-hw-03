@@ -7,7 +7,7 @@ import { nanoid } from "nanoid";
 const validationSchema = Yup.object().shape({
   name: Yup.string()
     .min(3, "Name must be at least 3 characters")
-    .max(30, "Name must be 30 characters or less")
+    .max(50, "Name must be 30 characters or less")
     .required("Required"),
   number: Yup.string()
     .matches(/^\d+$/, "Only numbers can be entered")

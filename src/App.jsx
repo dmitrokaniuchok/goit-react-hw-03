@@ -29,6 +29,10 @@ export default function App() {
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
 
+  const handleSearchChange = (event) => {
+    setFilter(event.target.value);
+  };
+
   const handleAddContact = (newContact) => {
     const contactId = {
       id: nanoid(),
@@ -37,12 +41,16 @@ export default function App() {
     setContacts((prev) => [...prev, contactId]);
   };
 
+  const handleDelete = (id) => {
+    setContacts((prev) => prev.filter((contact) => contact.id !== id));
+  };
+
   return (
     <div>
       <h1>Phonebook</h1>
       <ContactForm onAdd={handleAddContact} />
-      <SearchBox value={filter} onChange={setFilter} />
-      <ContactList contacts={filteredContacts} />
+      <SearchBox value={filter} onChange={handleSearchChange} />
+      <ContactList contacts={filteredContacts} onDelete={handleDelete} />
     </div>
   );
 }
