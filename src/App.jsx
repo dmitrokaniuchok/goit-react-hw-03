@@ -48,8 +48,10 @@ export default function App() {
   return (
     <div>
       <h1>Phonebook</h1>
-      <ContactForm onAdd={handleAddContact} />
-      <SearchBox value={filter} onChange={handleSearchChange} />
+      <div className="form-container">
+        <ContactForm onAdd={handleAddContact} />
+        <SearchBox value={filter} onChange={handleSearchChange} />
+      </div>
       <ContactList contacts={filteredContacts} onDelete={handleDelete} />
     </div>
   );

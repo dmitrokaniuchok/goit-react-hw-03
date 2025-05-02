@@ -10,6 +10,8 @@ const validationSchema = Yup.object().shape({
     .max(50, "Name must be 30 characters or less")
     .required("Required"),
   number: Yup.string()
+    .min(7)
+    .max(15)
     .matches(/^\d+$/, "Only numbers can be entered")
     .required("Required"),
 });
