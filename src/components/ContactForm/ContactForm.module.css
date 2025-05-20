@@ -1,63 +1,75 @@
 .form {
-  width: 300px;
+  width: 100%;
+  max-width: 360px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 12px;
-  border: 1px solid #213547;
-  border-radius: 12px;
-  background-color: #f9f9f9;
-  margin-bottom: 20px;
+  gap: 20px;
+  padding: 24px;
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  margin-bottom: 24px;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.form:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 .label {
   display: flex;
   flex-direction: column;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
-  color: #213547;
-  gap: 4px;
+  color: #374151;
+  gap: 6px;
 }
 
 .labelRow {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
 .icon {
   font-size: 18px;
-  color: #213547;
+  color: #4b5563;
 }
 
 .input {
-  padding: 8px 12px;
-  font-size: 16px;
-  border: 1px solid #213547;
-  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
   outline: none;
-  transition: border-color 0.3s ease-in-out;
+  background-color: #f9fafb;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .input:focus {
-  border-color: #007bff;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+  background-color: #ffffff;
 }
 
 .button {
-  padding: 8px 12px;
-  background-color: #28a745;
-  color: #fafafa;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #ffffff;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 .button:hover {
-  background-color: #218838;
+  background: linear-gradient(135deg, #16a34a, #15803d);
 }
 
 .error {
   font-size: 14px;
-  color: #d32f2f;
+  color: #ef4444;
 }
